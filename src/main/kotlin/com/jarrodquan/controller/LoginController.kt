@@ -6,13 +6,16 @@ import javafx.animation.KeyValue
 import javafx.animation.Timeline
 import javafx.event.EventHandler
 import javafx.fxml.FXML
+import javafx.fxml.Initializable
 import javafx.scene.control.Button
 import javafx.scene.control.Label
 import javafx.scene.input.MouseEvent
 import javafx.util.Duration
 import org.slf4j.LoggerFactory
+import java.net.URL
+import java.util.*
 
-class LoginController {
+class LoginController : Initializable {
     companion object {
         private val LOGGER = LoggerFactory.getLogger(LoginController::class.java)
     }
@@ -28,11 +31,11 @@ class LoginController {
     @FXML
     private lateinit var btnEdit: Button
 
-    fun init() {
+    override fun initialize(location: URL?, resources: ResourceBundle?) {
         LOGGER.debug("Initializing...")
 
-        appendFadeAnimation(lblHello, lblGoodbye)
-        appendScaleAnimation(btnStart, btnOpen, btnEdit)
+        //appendFadeAnimation(lblHello, lblGoodbye)
+        //appendScaleAnimation(btnStart, btnOpen, btnEdit)
     }
 
     fun btnOnMouseClicked(event: MouseEvent) {

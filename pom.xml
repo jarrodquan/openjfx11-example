@@ -12,14 +12,14 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>OpenJFX example</name>
+    <name>OpenJFX 11 example</name>
 
     <properties>
         <java.version>11</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <kotlin.version>1.3.41</kotlin.version>
         <kotlin.code.style>official</kotlin.code.style>
-        <javafx.version>12.0.1</javafx.version>
+        <javafx.version>11.0.2</javafx.version>
     </properties>
 
     <dependencies>
