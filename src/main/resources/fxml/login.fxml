@@ -1,24 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.Pane?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.StackPane?>
 <?import java.net.URL?>
-<Pane xmlns:fx="http://javafx.com/fxml"
-      xmlns="http://javafx.com/javafx"
-      fx:controller="com.jarrodquan.controller.LoginController"
-      prefHeight="768" prefWidth="1024">
+<StackPane xmlns:fx="http://javafx.com/fxml"
+           xmlns="http://javafx.com/javafx"
+           fx:controller="com.jarrodquan.controller.LoginController"
+           prefHeight="600" prefWidth="400" fx:id="rootStackPane">
     <stylesheets>
         <URL value="@login.css"/>
     </stylesheets>
-
-    <Label styleClass="skyblue-text" text="你好，世界！" layoutX="100" layoutY="10"/>
-    <Label styleClass="skyblue-text" text="再见，世界！" layoutX="200" layoutY="10"/>
-
-    <Button fx:id="btnStart" styleClass="circular-button" text="开始" layoutX="100" layoutY="50"
-            onMouseClicked="#btnOnMouseClicked">
-    </Button>
-    <Button fx:id="btnOpen" styleClass="circular-button" text="打开" layoutX="200" layoutY="50"
-            onMouseClicked="#btnOnMouseClicked"/>
-    <Button fx:id="btnEdit" styleClass="circular-button" text="编辑" layoutX="300" layoutY="50"
-            onMouseClicked="#btnOnMouseClicked"/>
-</Pane>
+    <FlowPane orientation="VERTICAL">
+        <Label labelFor="$txtUsername" text="用户名"/>
+        <Label labelFor="$txtPassword" text="密码"/>
+        <JFXTextField fx:id="txtUsername" labelFloat="true"/>
+        <JFXPasswordField fx:id="txtPassword" labelFloat="true"/>
+        <JFXButton fx:id="btnLogin" text="登录" layoutX="150" layoutY="70"
+                   onMouseClicked="#login"/>
+        <JFXButton fx:id="btnExit" text="退出" layoutX="200" layoutY="70"
+                   onMouseClicked="#exit"/>
+    </FlowPane>
+</StackPane>
