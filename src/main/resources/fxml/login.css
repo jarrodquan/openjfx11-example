@@ -1,0 +1,14 @@
+.skyblue-text {
+    -fx-pref-width: 100;
+    -fx-pref-height: 30;
+    -fx-alignment: center;
+    -fx-background-radius: 20;
+    -fx-background-color: skyblue;
+}
+
+.circular-button {
+    -fx-pref-width: 60;
+    -fx-pref-height: 30;
+    -fx-background-radius: 20;
+    -fx-background-color: teal;
+}

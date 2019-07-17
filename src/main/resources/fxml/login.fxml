@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.Pane?>
+<?import java.net.URL?>
+<Pane xmlns:fx="http://javafx.com/fxml"
+      xmlns="http://javafx.com/javafx"
+      fx:controller="com.jarrodquan.controller.LoginController"
+      prefHeight="768" prefWidth="1024">
+    <stylesheets>
+        <URL value="@login.css"/>
+    </stylesheets>
+
+    <Label styleClass="skyblue-text" text="你好，世界！" layoutX="100" layoutY="10"/>
+    <Label styleClass="skyblue-text" text="再见，世界！" layoutX="200" layoutY="10"/>
+
+    <Button fx:id="btnStart" styleClass="circular-button" text="开始" layoutX="100" layoutY="50"
+            onMouseClicked="#btnOnMouseClicked">
+    </Button>
+    <Button fx:id="btnOpen" styleClass="circular-button" text="打开" layoutX="200" layoutY="50"
+            onMouseClicked="#btnOnMouseClicked"/>
+    <Button fx:id="btnEdit" styleClass="circular-button" text="编辑" layoutX="300" layoutY="50"
+            onMouseClicked="#btnOnMouseClicked"/>
+</Pane>
