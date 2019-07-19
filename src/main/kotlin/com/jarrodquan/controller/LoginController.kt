@@ -1,6 +1,10 @@
 package com.jarrodquan.controller
 
-import com.jfoenix.controls.*
+import com.jarrodquan.common.AppConfirm
+import com.jarrodquan.common.AppResource
+import com.jfoenix.controls.JFXButton
+import com.jfoenix.controls.JFXPasswordField
+import com.jfoenix.controls.JFXTextField
 import javafx.animation.FadeTransition
 import javafx.animation.KeyFrame
 import javafx.animation.KeyValue
@@ -11,8 +15,9 @@ import javafx.fxml.FXML
 import javafx.fxml.Initializable
 import javafx.scene.control.Button
 import javafx.scene.control.Label
+import javafx.scene.image.Image
 import javafx.scene.input.MouseEvent
-import javafx.scene.layout.StackPane
+import javafx.scene.layout.*
 import javafx.util.Duration
 import org.slf4j.LoggerFactory
 import java.net.URL
@@ -37,6 +42,16 @@ class LoginController : Initializable {
     override fun initialize(location: URL?, resources: ResourceBundle?) {
         LOGGER.debug("Initializing...")
 
+        rootStackPane.background = Background(
+            BackgroundImage(
+                Image(AppResource.load("images/background1.jpg")?.openStream()),
+                BackgroundRepeat.REPEAT,
+                BackgroundRepeat.REPEAT,
+                BackgroundPosition.CENTER,
+                BackgroundSize.DEFAULT
+            )
+        )
+
         appendScaleAnimation(btnLogin, btnExit)
     }
 
@@ -51,24 +66,15 @@ class LoginController : Initializable {
     }
 
     fun exit(event: MouseEvent) {
-        val btnConfirm = JFXButton("确认")
-        val btnCancel = JFXButton("取消")
-        val jfxDialogLayout = JFXDialogLayout()
-
-        jfxDialogLayout.setHeading(Label("操作确认"))
-        jfxDialogLayout.setBody(Label("确认退出系统？"))
-        jfxDialogLayout.setActions(btnConfirm, btnCancel)
-
-        val dialog = JFXDialog(rootStackPane, jfxDialogLayout, JFXDialog.DialogTransition.BOTTOM, false)
-
-        btnConfirm.onMouseClicked = EventHandler {
-            Platform.exit()
-        }
-        btnCancel.onMouseClicked = EventHandler {
-            dialog.close()
-        }
-
-        dialog.show()
+        AppConfirm(rootStackPane)
+            .title("操作确认")
+            .content("确认退出系统？")
+            .show(
+                EventHandler {
+                    Platform.exit()
+                },
+                null
+            )
     }
 
     private fun appendFadeAnimation(vararg labels: Label) = labels.forEach {

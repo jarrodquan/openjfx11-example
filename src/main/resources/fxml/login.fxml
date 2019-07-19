@@ -4,8 +4,7 @@
 <?import com.jfoenix.controls.JFXPasswordField?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.FlowPane?>
-<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.*?>
 <?import java.net.URL?>
 <StackPane xmlns:fx="http://javafx.com/fxml"
            xmlns="http://javafx.com/javafx"
@@ -14,14 +13,24 @@
     <stylesheets>
         <URL value="@login.css"/>
     </stylesheets>
-    <FlowPane orientation="VERTICAL">
-        <Label labelFor="$txtUsername" text="用户名"/>
-        <Label labelFor="$txtPassword" text="密码"/>
-        <JFXTextField fx:id="txtUsername" labelFloat="true"/>
-        <JFXPasswordField fx:id="txtPassword" labelFloat="true"/>
-        <JFXButton fx:id="btnLogin" text="登录" layoutX="150" layoutY="70"
-                   onMouseClicked="#login"/>
-        <JFXButton fx:id="btnExit" text="退出" layoutX="200" layoutY="70"
-                   onMouseClicked="#exit"/>
-    </FlowPane>
+
+    <AnchorPane>
+        <GridPane AnchorPane.leftAnchor="100" AnchorPane.rightAnchor="100" AnchorPane.topAnchor="100"
+                  AnchorPane.bottomAnchor="10">
+            <Label GridPane.rowIndex="0" GridPane.columnIndex="0" labelFor="$txtUsername" text="用户名" prefWidth="60"
+                   alignment="CENTER"/>
+            <JFXTextField GridPane.rowIndex="0" GridPane.columnIndex="1" fx:id="txtUsername" labelFloat="true"/>
+
+            <Label GridPane.rowIndex="1" GridPane.columnIndex="0" labelFor="$txtPassword" text="密码" prefWidth="60"
+                   alignment="CENTER"/>
+            <JFXPasswordField GridPane.rowIndex="1" GridPane.columnIndex="1" fx:id="txtPassword" labelFloat="true"/>
+
+            <FlowPane GridPane.rowIndex="2" GridPane.columnIndex="0" GridPane.columnSpan="2" alignment="CENTER">
+                <JFXButton fx:id="btnLogin" text="登录" layoutX="150" layoutY="70"
+                           onMouseClicked="#login"/>
+                <JFXButton fx:id="btnExit" text="退出" layoutX="200" layoutY="70"
+                           onMouseClicked="#exit"/>
+            </FlowPane>
+        </GridPane>
+    </AnchorPane>
 </StackPane>

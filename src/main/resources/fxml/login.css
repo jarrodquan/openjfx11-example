@@ -1,3 +1,8 @@
+.root {
+    -fx-font-family: "Sarasa UI SC Medium";
+    -fx-text-fill: white;
+}
+
 .circular-button {
     -fx-pref-width: 60;
     -fx-pref-height: 30;
